@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/head :: head"></head>
+<body>
+
+<!-- Header -->
+<div th:replace="fragments/header :: header"></div>
+
+    <!--/* Content of this page will be decorated by the elements of layout.html (student/layout) */-->
+    <div class="container" layout:fragment="summary">
+
+    <!--<div class="container">-->
+        <div class="jumbotron">
+            <h1>Welkom in de Bibliotheek</h1>
+            <p>
+                Dit is een Spring Boot Thymeleaf MVC Application. Het is nu <span th:text="${#temporals.format(now, 'd MM yyyy HH:mm')}">31/12/2015 15:00</span>
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3" th:each="book : ${books}">
+                <div class="thumbnail frontpage">
+                    <img class="thumbnail smaller-img" th:src="${book.ImageURL}" />
+                    <div class="caption frontpage">
+                        <!-- Toon alleen de eerste n letters van de titel - sommige zijn heel lang. -->
+                        <h3><a th:href="@{/book/{id}(id=${book.EAN})}" th:text="${#strings.abbreviate(book.title,32)}">Titel</a></h3>
+                        <p th:text="${book.author}">Author</p>
+                        <p th:text="${book.nrOfCopies} + ${book.nrOfCopies == 1 ? ' Exemplaar' : ' Exemplaren'} + ' beschikbaar'">Exemplaren aanwezig</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

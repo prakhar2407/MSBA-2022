@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" summary="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <link href="../static/css/core.css" th:href="@{/css/core.css}" rel="stylesheet" media="screen" />
+    <link href="../static/css/sticky-footer-navbar.css" th:href="@{/css/sticky-footer-navbar.css}" rel="stylesheet" media="screen" />
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand active" href="/"><i class="glyphicon glyphicon-book"></i>De Bieb</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li role="presentation" class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Member<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Member operations</li>
+                        <li role="presentation">
+                            <a href="/member">List members</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/member/create">Create member</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Book<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">External APIs</li>
+                        <li role="presentation">
+                            <a href="/book">List books via REST API</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/catalogus">Search in Bol.com catalogus</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Application insight</li>
+                        <li role="presentation">
+                            <a href="/logfile" target="_blank">Logfile</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/health" target="_blank">Health</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/metrics" target="_blank">Metrics</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Avans Book Library API </li>
+                        <li><a href="/swagger-ui.html" target="_blank">API Description</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Error handling (demo)</li>
+                        <li><a href="/niet-bestaande-pagina">Non-existing page (404)</a></li>
+                        <li><a href="/exception">Throw/Catch Exception</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+</body>
+</html>
